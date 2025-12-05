@@ -26,28 +26,37 @@ The first phase will be to work on this document.
 ### Necessary Features
 What are the core features that your program should have? These should be things that __must__ be implemented in order to make the program useable/playable, not extra features that could be added to make the program more interesting/fun.
 
-YOUR ANSWERS HERE
+- spaceship class
+- projectile class
+- user input (movement, shoot)
+- spaceship-projectile collision
+- win/lose event
 
 ### Extra Features
 What are some features that are not essential to the program, but you would like to see (provided you have time after completing the necessary features. Theses can be customizations that are not part of the core requirements.
 
-YOUR ANSWERS HERE
+- boss
+- barriers
+- waves
 
 ### Array Usage
 How will you be using arrays in this project?
 
 1D Array:
-- YOUR ANSER HERE
+- enemy projectiles
+- player projectiles
 
 2D Array:
-- YOUR ANSWER HERE
+- enemy spaceships
 
 
 ### Controls
 How will your program be controlled? List all keyboard commands and mouse interactions.
 
 Keyboard Commands:
-- LIST OF COMMANDS HERE
+- space (shoot)
+- left/right (move)
+- esc/enter (pause/unpause)
 
 Mouse Control:
 - Mouse movement:
@@ -57,14 +66,21 @@ Mouse Control:
 ### Classes
 What classes will you be creating for this project? Include the instance variables and methods that you believe you will need. You will be required to create at least 2 different classes. If you are going to use classes similar to those we've made for previous assignments, you will have to add new features to them.
 
-CLASS NAME0
+CLASS SPACESHIP
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - int x
+  - int y
+  - boolean facing
 - METHODS
-  - LIST METHODS HERE
+  - Spaceship (int x, int y, boolean facing)
+  - void move (int dx, int dy)
+  - Projectile shoot ()
 
-CLASS NAME1
+CLASS PROJECTILE
 - Instance variables:
-  - LIST INSTANCE VARS HERE
+  - int x
+  - int y
+  - int facing
 - METHODS
-  - LIST METHODS HERE
+  - void move (int v)
+  - boolean hit (Spaceship s)
