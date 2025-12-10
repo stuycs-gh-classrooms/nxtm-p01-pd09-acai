@@ -1,21 +1,15 @@
 class Spaceship {
   
   int x,y;
+  int dx;
+  int size;
   boolean facing;
   
-  Spaceship(int x, int y, boolean facing){
+  Spaceship(int x, int y, int size, boolean facing){
     this.x = x;
     this.y = y;
+    this.size = size;
     this.facing = facing;
-  }
-  
-  void move(int dx, int dy){
-    x += dx;
-    y += dy;
-  }
-  
-  void move(int dx){
-    move(dx, 0);
   }
   
   Projectile shoot(){
@@ -24,7 +18,7 @@ class Spaceship {
   
   void display(){
     fill(0);
-    rect(x,y,50,50);
+    rect(x,y,size, size);
   }
 }
   
