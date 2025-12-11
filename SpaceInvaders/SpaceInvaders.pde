@@ -35,6 +35,7 @@ void draw() {
   
   display();
   move_enemies();
+  move_projectiles();
 }
 
 void display() {
@@ -43,6 +44,11 @@ void display() {
     for (int i=0; i<col; i++) {
       for (int j=0; j<row; j++) {
         enemies[i][j].display();
+      }
+    }
+    for (int z = 0; z < max_projectiles; z++){
+      if (projectiles[z] != null){
+        projectiles[z].display();
       }
     }
   } else {
@@ -69,6 +75,15 @@ void move_enemies() {
     }
   }
 }
+
+void move_projectiles(){
+  for (int i = 0; i < max_projectiles; i++){
+    if (projectiles[i] != null){
+      projectiles[i].move();
+    }
+  }
+}
+    
       
 void restart() {
   player = new Spaceship(width/2, height - psize, psize, true);
@@ -89,20 +104,29 @@ void keyPressed(){
   } else if (keyCode == ENTER){
     running = true;
   }
+  
+ //Player movement 
   if (running) {
-    //Player movement
     if (keyCode == RIGHT){
-      player.x += pspeed;
+      if (player.x + psize + pspeed < width) {
+        player.x += pspeed;
+      }
     } else if (keyCode == LEFT){
-      player.x -= pspeed;
+      if (player.x + pspeed > 0) {
+        player.x -= pspeed;
+      }
     }
+  }
     
   //Player shoot
     if (key == ' '){
-      player.shoot();
+      Projectile p = player.shoot();
+      for (int i = 0; i < max_projectiles; i++){
+        if (projectiles[i] == null){
+          projectiles[i] = p;
+          i = max_projectiles;
+        }
+      }
     }
   }
-
-}
-
   

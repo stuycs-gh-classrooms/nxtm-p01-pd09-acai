@@ -1,7 +1,6 @@
 class Spaceship {
   
   int x,y;
-  int dx;
   int size;
   boolean facing;
   
@@ -13,7 +12,7 @@ class Spaceship {
   }
   
   Projectile shoot(){
-    return new Projectile(x,y,facing);
+    return new Projectile(x,y,size/2,facing);
   }
   
   void display(){

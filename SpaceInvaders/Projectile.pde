@@ -1,19 +1,21 @@
 class Projectile {
   
   int x,y;
+  int size;
   boolean facing;
   
-  Projectile(int x, int y, boolean facing){
+  Projectile(int x, int y, int size, boolean facing){
     this.x = x;
     this.y = y;
+    this.size = size;
     this.facing = facing;
   }
   
   void move(){
     if(facing){
-      y--;
+      y -= size;
     } else {
-      y++;
+      y += size;
     }
   }
   
