@@ -1,3 +1,4 @@
+
 class Spaceship {
   
   int x,y;

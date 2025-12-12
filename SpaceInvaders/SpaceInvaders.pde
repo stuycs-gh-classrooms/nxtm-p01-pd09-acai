@@ -16,6 +16,9 @@ float shootrate;
 Projectile[] projectiles;
 int max_projectiles;
 
+Block[] blocks;
+int num_blocks;
+
 void setup() {
   size(1000,500);
   frameRate(5);
@@ -37,6 +40,8 @@ void setup() {
   shootrate = 5.0 / (row*col);
   
   max_projectiles = 100;
+  
+  num_blocks = 4;
 }
 
 void restart() {
@@ -52,6 +57,11 @@ void restart() {
   }}
  
   projectiles = new Projectile[max_projectiles];
+  
+  blocks = new Block[num_blocks];
+  for (int i=0; i<num_blocks; i++) {
+    blocks[i] = new Block(i*width/(2*num_blocks), height-20*size, 10*size, 20);
+  }
 }
 
 void draw() {
