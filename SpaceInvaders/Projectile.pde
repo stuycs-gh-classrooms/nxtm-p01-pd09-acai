@@ -11,22 +11,14 @@ class Projectile {
     this.facing = facing;
   }
   
-  void move(){
-    if(facing){
-      y -= size;
-    } else {
-      y += size;
-    }
-  }
-  
   void display(){
-    fill(0);
-    circle(x,y,50);
+    fill(255);
+    rect(x, y, size, 5*size);
   }
   
-  boolean hit(Spaceship s){
-    if (s.x - x <= 50 && s.x - x >= -150){
-      if (s.y - y <= 50 && s.y - y >= -150){
+  boolean collide(Spaceship s){
+    if (s.x - x <= size && s.x - x >= -s.size){
+      if (s.y - y <= 5*size && s.y - y >= -s.size){
         return true;
       } else {
         return false;
